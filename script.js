@@ -39,7 +39,6 @@ function setupGame() {
   moves = 0;
   movesElement.textContent = moves;
 
-  // дублируем картинки и тасуем
   cardsData = [...baseImages, ...baseImages];
   shuffle(cardsData);
 
@@ -104,8 +103,7 @@ function hideCard(card) {
 }
 
 function checkForMatch() {
-  const isMatch =
-    firstCard.dataset.image === secondCard.dataset.image;
+  const isMatch = firstCard.dataset.image === secondCard.dataset.image;
 
   if (isMatch) {
     disableMatchedCards();
@@ -147,7 +145,6 @@ function resetTurn() {
   lockBoard = false;
 }
 
-// рестарт
 restartBtn.addEventListener("click", () => {
   setupGame();
 });
