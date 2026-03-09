@@ -7,27 +7,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page">
-    <!-- Баннер -->
-    <div class="banner">
-      <img src="images/mad-universe.jpg" alt="Mad Universe" class="banner-image" />
+  <div class="game-wrapper">
+    <h1 class="title">Mad Flip</h1>
+
+    <div class="stats">
+      <span>Moves: <span id="moves">0</span></span>
     </div>
 
-    <!-- Блок игры -->
-    <div class="game-wrapper">
-      <h1 class="title">MAD FLIP</h1>
-
-      <div class="stats">
-        <span>Moves: <span id="moves">0</span></span>
-      </div>
-
-      <div class="grid-wrapper">
-        <div id="grid" class="grid"></div>
-      </div>
-    </div>
+    <div id="grid" class="grid"></div>
   </div>
 
-  <!-- Модалка победы -->
   <div id="win-modal" class="modal hidden">
     <div class="modal-content">
       <h2>Победа!</h2>
