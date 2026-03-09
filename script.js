@@ -3,19 +3,19 @@ const movesElement = document.getElementById("moves");
 const winModal = document.getElementById("win-modal");
 const restartBtn = document.getElementById("restart-btn");
 
-// 8 цветов по два раза = 16 карточек (4x4)
-const baseColors = [
-  "#ef4444",
-  "#f97316",
-  "#eab308",
-  "#22c55e",
-  "#0ea5e9",
-  "#6366f1",
-  "#a855f7",
-  "#ec4899",
+// 8 картинок по два раза = 16 карточек
+const baseImages = [
+  "images/bersekr-mad.png",
+  "images/idk-mad.png",
+  "images/just-mad.png",
+  "images/kekw-mad.jpeg",
+  "images/king-mad.jpeg",
+  "images/mecho-mad.jpeg",
+  "images/pizza-mad.jpeg",
+  "images/xd-mad.jpeg",
 ];
 
-let colors = [];
+let cardsData = [];
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
@@ -30,7 +30,6 @@ function shuffle(array) {
 }
 
 function setupGame() {
-  // сбрасываем состояние
   gridElement.innerHTML = "";
   winModal.classList.add("hidden");
   firstCard = null;
@@ -40,20 +39,26 @@ function setupGame() {
   moves = 0;
   movesElement.textContent = moves;
 
-  // готовим массив цветов
-  colors = [...baseColors, ...baseColors]; // дублируем
-  shuffle(colors);
+  // дублируем картинки и тасуем
+  cardsData = [...baseImages, ...baseImages];
+  shuffle(cardsData);
 
-  // создаём 16 карточек
-  colors.forEach((color, index) => {
+  cardsData.forEach((imgSrc, index) => {
     const card = document.createElement("div");
     card.className = "card hidden-color";
-    card.dataset.color = color;
+    card.dataset.image = imgSrc;
     card.dataset.index = index;
 
     const inner = document.createElement("div");
     inner.className = "card-inner";
-    // пока держим цвет в JS, отрисуем его только при открытии
+
+    const img = document.createElement("img");
+    img.src = imgSrc;
+    img.alt = "card";
+    img.className = "card-image";
+    img.style.opacity = "0";
+
+    inner.appendChild(img);
     card.appendChild(inner);
 
     card.addEventListener("click", onCardClick);
@@ -86,21 +91,21 @@ function revealCard(card) {
   card.classList.remove("hidden-color");
   card.classList.add("revealed");
 
-  const color = card.dataset.color;
-  const inner = card.querySelector(".card-inner");
-  inner.style.background = color;
+  const img = card.querySelector(".card-image");
+  img.style.opacity = "1";
 }
 
 function hideCard(card) {
   card.classList.add("hidden-color");
   card.classList.remove("revealed");
 
-  const inner = card.querySelector(".card-inner");
-  inner.style.background = "";
+  const img = card.querySelector(".card-image");
+  img.style.opacity = "0";
 }
 
 function checkForMatch() {
-  const isMatch = firstCard.dataset.color === secondCard.dataset.color;
+  const isMatch =
+    firstCard.dataset.image === secondCard.dataset.image;
 
   if (isMatch) {
     disableMatchedCards();
@@ -121,8 +126,7 @@ function disableMatchedCards() {
   matchedCount += 2;
   resetTurn();
 
-  if (matchedCount === colors.length) {
-    // все карты найдены
+  if (matchedCount === cardsData.length) {
     setTimeout(() => {
       winModal.classList.remove("hidden");
     }, 400);
