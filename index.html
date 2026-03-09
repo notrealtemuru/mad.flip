@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mad Flip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-wrapper">
+    <h1 class="title">Mad Flip</h1>
+
+    <div class="stats">
+      <span>Moves: <span id="moves">0</span></span>
+    </div>
+
+    <div id="grid" class="grid"></div>
+  </div>
+
+  <!-- Модалка победы -->
+  <div id="win-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Победа!</h2>
+      <p>Ты нашёл все пары.</p>
+      <button id="restart-btn">Начать заново</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
