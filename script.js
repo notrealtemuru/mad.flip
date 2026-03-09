@@ -5,7 +5,7 @@ const restartBtn = document.getElementById("restart-btn");
 
 // 8 картинок по два раза = 16 карточек
 const baseImages = [
-  "images/bersekr-mad.png",
+  "images/berserk-mad.png",
   "images/idk-mad.png",
   "images/just-mad.png",
   "images/kekw-mad.jpeg",

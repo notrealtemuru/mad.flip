@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Mad Flip</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-</head>
 <body>
-  <div class="game-wrapper">
-    <h1 class="title">Mad Flip</h1>
-
-    <div class="stats">
-      <span>Moves: <span id="moves">0</span></span>
+  <div class="page">
+    <!-- Баннер наверху -->
+    <div class="banner">
+      <img src="images/mad-universe.jpg" alt="Mad Universe" class="banner-image" />
     </div>
 
-    <div id="grid" class="grid"></div>
+    <!-- Блок игры -->
+    <div class="game-wrapper">
+      <h1 class="title">MAD FLIP</h1>
+
+      <div class="stats">
+        <span>Moves: <span id="moves">0</span></span>
+      </div>
+
+      <div class="grid-wrapper">
+        <div id="grid" class="grid"></div>
+      </div>
+    </div>
   </div>
 
-  <!-- Модалка победы -->
+  <!-- Модалка победы как раньше -->
   <div id="win-modal" class="modal hidden">
     <div class="modal-content">
       <h2>Победа!</h2>
@@ -28,4 +30,3 @@
 
   <script src="script.js"></script>
 </body>
-</html>
