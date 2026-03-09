@@ -5,7 +5,6 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* центрируем игровое поле по центру экрана */
 body {
   min-height: 100vh;
   display: flex;
@@ -19,20 +18,17 @@ body {
   text-align: center;
 }
 
-/* заголовок игры */
 .title {
   margin-bottom: 16px;
   font-size: 28px;
   font-weight: 700;
 }
 
-/* moves */
 .stats {
   margin-bottom: 20px;
   font-size: 16px;
 }
 
-/* увеличенное игровое поле 4x4 */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 120px);
@@ -41,7 +37,6 @@ body {
   justify-content: center;
 }
 
-/* карточка-обёртка */
 .card {
   width: 120px;
   height: 120px;
@@ -58,7 +53,6 @@ body {
   cursor: default;
 }
 
-/* внутренняя часть карточки */
 .card-inner {
   width: 100%;
   height: 100%;
@@ -69,7 +63,6 @@ body {
   overflow: hidden;
 }
 
-/* закрытая карточка — рубашка */
 .card.hidden-color .card-inner {
   background: #111827;
   background-image: url("images/closed-card-mad.jpg");
@@ -77,13 +70,11 @@ body {
   background-position: center;
 }
 
-/* открыта / совпала — подсветка */
 .card.revealed .card-inner,
 .card.matched .card-inner {
   border: 3px solid #f9fafb;
 }
 
-/* изображение карты */
 .card-image {
   width: 100%;
   height: 100%;
@@ -91,7 +82,6 @@ body {
   transition: opacity 0.2s ease;
 }
 
-/* модальное окно */
 .modal {
   position: fixed;
   inset: 0;
@@ -128,7 +118,7 @@ body {
   padding: 10px 24px;
   border-radius: 9999px;
   border: none;
-  background: #22c55e;
+  background: #f9fafb;
   color: #022c22;
   font-weight: 700;
   font-size: 16px;
@@ -136,10 +126,9 @@ body {
 }
 
 .modal-content button:hover {
-  background: #16a34a;
+  background: #a5a6a7;
 }
 
-/* адаптив: на маленьких экранах чуть уменьшаем поле */
 @media (max-width: 480px) {
   .grid {
     grid-template-columns: repeat(4, 90px);
